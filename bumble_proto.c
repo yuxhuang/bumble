@@ -1,4 +1,4 @@
-#include "proto.h"
+#include "bumble_proto.h"
 
 #include <stdio.h>
 #include <stdlib.h>
