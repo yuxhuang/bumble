@@ -26,18 +26,21 @@ typedef struct __bumble_item_t {
 } bumble_item_t;
 
 typedef struct __bumble_t {
-    uint8_t size;
+    size_t size;
     bumble_item_t items[0];
 } bumble_t;
 
 // create a bumble packet with a certain size.
-bumble_t *create_bumble_packet(uint8_t size);
+bumble_t*   create_bumble_packet(size_t size);
+
+// get the size of the packet
+size_t      sizeof_bumble_packet(bumble_t *packet);
 
 // destroy a bumble packet
-void destroy_bumble_packet(bumble_t *);
+void        destroy_bumble_packet(bumble_t *packet);
 
 // print the trace of a bumble packet
-void print_bumble_packet(bumble_t *);
+void        print_bumble_packet(bumble_t *);
 
 #endif
 

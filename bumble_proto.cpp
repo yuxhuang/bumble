@@ -4,19 +4,23 @@
 #include <stdlib.h>
 #include <assert.h>
 
-bumble_t *create_bumble_packet(uint8_t size) {
+bumble_t *create_bumble_packet(size_t size) {
     bumble_t *result = (bumble_t*) malloc(sizeof(bumble_t) + size * sizeof(bumble_item_t));
     result->size = size;
     return result;
 }
 
-void destroy_bumble_packet(bumble_t* packet) {
+void destroy_bumble_packet(bumble_t *packet) {
     assert(packet != NULL);
     
     free(packet);
 }
 
-void print_bumble_packet(bumble_t* packet) {
+size_t sizeof_bumble_packet(bumble_t *packet) {
+    return sizeof(bumble_t) + packet->size * sizeof(bumble_item_t);
+}
+
+void print_bumble_packet(bumble_t *packet) {
     assert(packet != NULL);
 
     printf("Bumble packet:\n");
