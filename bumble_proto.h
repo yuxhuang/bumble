@@ -3,6 +3,7 @@
 #define __BUMBLE_PROTO_H
 
 #include <stdint.h>
+#include <stddef.h>
 
 #define BUMBLE_SENSOR_TYPE_TEMPERATURE  0x0001
 #define BUMBLE_SENSOR_TYPE_HUMIDITY     0X0002
