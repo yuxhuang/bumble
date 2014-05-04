@@ -1,4 +1,4 @@
-blue-sensors
+Bumble
 ============
 
 A simple monitoring protocol.
