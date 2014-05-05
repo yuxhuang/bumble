@@ -10,6 +10,10 @@
 #define BUMBLE_SENSOR_TYPE_BAROMETRIC   0x0003
 #define BUMBLE_SENSOR_TYPE_LUMINOSITY   0x0010
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum bumble_item_type {
     BUMBLE_ITEM_SIGNED,
     BUMBLE_ITEM_UNSIGNED,
@@ -42,6 +46,10 @@ void        destroy_bumble_packet(bumble_t *packet);
 
 // print the trace of a bumble packet
 void        print_bumble_packet(bumble_t *);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

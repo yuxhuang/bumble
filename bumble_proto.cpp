@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include <assert.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 bumble_t *create_bumble_packet(size_t size) {
     bumble_t *result = (bumble_t*) malloc(sizeof(bumble_t) + size * sizeof(bumble_item_t));
     result->size = size;
@@ -39,3 +43,7 @@ void print_bumble_packet(bumble_t *packet) {
         }
     }
 }
+
+#ifdef __cplusplus
+}
+#endif
