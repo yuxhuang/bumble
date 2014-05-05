@@ -3,7 +3,6 @@
 #define __BUMBLE_PROTO_H
 
 #include <stdint.h>
-#include <stddef.h>
 
 #define BUMBLE_SENSOR_TYPE_TEMPERATURE  0x0001
 #define BUMBLE_SENSOR_TYPE_HUMIDITY     0X0002
@@ -20,6 +19,8 @@ enum bumble_item_type {
     BUMBLE_ITEM_FLOAT
 };
 
+typedef int16_t bumble_size_t;
+
 typedef struct __bumble_item_t {
     uint16_t type;
     enum bumble_item_type data_type;
@@ -31,15 +32,15 @@ typedef struct __bumble_item_t {
 } bumble_item_t;
 
 typedef struct __bumble_t {
-    size_t size;
+    bumble_size_t size;
     bumble_item_t items[0];
 } bumble_t;
 
 // create a bumble packet with a certain size.
-bumble_t*   create_bumble_packet(size_t size);
+bumble_t*   create_bumble_packet(bumble_size_t size);
 
 // get the size of the packet
-size_t      sizeof_bumble_packet(bumble_t *packet);
+bumble_size_t      sizeof_bumble_packet(bumble_t *packet);
 
 // destroy a bumble packet
 void        destroy_bumble_packet(bumble_t *packet);
