@@ -23,7 +23,7 @@ typedef int16_t bumble_size_t;
 
 typedef struct __bumble_item_t {
     uint16_t type;
-    uint8_t bumble_item_type data_type;
+    uint8_t data_type;
     union {
         int32_t i;
         uint32_t u;
