@@ -1,7 +1,7 @@
 {
   "name": "bumble",
   "description": "module which defines the bumble packet format",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "dependencies": {
     "bufferpack": "0.0.6"
   },
