@@ -7,7 +7,6 @@ s.bind(5354, function() {
 });
 
 s.on('message', function (buf) {
-  console.log(buf);
-  var packet = new bumble.Packet(msg);
+  var packet = new bumble.Packet(buf);
   packet.log();
 });

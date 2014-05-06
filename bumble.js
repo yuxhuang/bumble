@@ -5,13 +5,17 @@ var PACKET_ITEM_SIZE = 7;
 
 function Packet(buffer) {
   // resolve the buffer
-  this.size = bufferpack.unpack('!h', buffer, 0);
+  this.size = bufferpack.unpack('<h', buffer, 0);
 
   var items = [], item;
 
   for (var idx = 0; idx < this.size; idx ++) {
-    item = bufferpack.unpack('!H(type)B(data_type)', buffer, PACKET_HEADER_SIZE + idx * PACKET_ITEM_SIZE);
-    item.data = bufferpack.unpack('!' + item_pack_mapping[item.data_type], buffer, PACKET_HEADER_SIZE + idx * PACKET_ITEM_SIZE + 3);
+    item = bufferpack.unpack('<HB', buffer, PACKET_HEADER_SIZE + idx * PACKET_ITEM_SIZE);
+    item = {
+      type: item[0],
+      data_type: item[1]
+    };
+    item.data = bufferpack.unpack('<' + item_pack_mapping[item.data_type], buffer, PACKET_HEADER_SIZE + idx * PACKET_ITEM_SIZE + 3);
     items.push(item);
   }
 
@@ -19,7 +23,7 @@ function Packet(buffer) {
 
   this.log = function () {
     console.log('bumble packet -------');
-    console.log('size:\t\t' + this.size());
+    console.log('size:\t\t' + this.size);
     console.log('items:');
     items.forEach(function (item, index) {
       console.log('[' + index + ']\t\t' + sensor_mapping[item.type] + ' ' + item_pack_mapping[item.data_type] + ' ' + item.data);
