@@ -16,6 +16,7 @@ function Packet(buffer) {
       data_type: item[1]
     };
     item.data = bufferpack.unpack('<' + item_pack_mapping[item.data_type], buffer, PACKET_HEADER_SIZE + idx * PACKET_ITEM_SIZE + 3);
+    item.data = item.data[0];
     items.push(item);
   }
 
