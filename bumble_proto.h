@@ -14,16 +14,16 @@ extern "C" {
 #endif
 
 enum bumble_item_type {
-    BUMBLE_ITEM_SIGNED,
-    BUMBLE_ITEM_UNSIGNED,
-    BUMBLE_ITEM_FLOAT
+    BUMBLE_ITEM_SIGNED          = 0,
+    BUMBLE_ITEM_UNSIGNED        = 1,
+    BUMBLE_ITEM_FLOAT           = 2,
 };
 
 typedef int16_t bumble_size_t;
 
 typedef struct __bumble_item_t {
     uint16_t type;
-    enum bumble_item_type data_type;
+    uint8_t bumble_item_type data_type;
     union {
         int32_t i;
         uint32_t u;

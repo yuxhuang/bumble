@@ -1,0 +1,10 @@
+{
+  "name": "bumble",
+  "description": "module which defines the bumble packet format",
+  "version": "0.0.1",
+  "dependencies": {
+    "bufferpack": "0.0.6"
+  },
+  "main": "./bumble.js",
+  "author": "Felix Huang <felix@webinit.org>"
+}
